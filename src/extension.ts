@@ -15,13 +15,23 @@ export function activate(context: vscode.ExtensionContext) {
     () => {
       const settingsFilePath = getSettingsPath();
       fs.readFile(settingsFilePath, "utf8", function(err, settingsJson) {
-        if (err) {
-          vscode.window.showInformationMessage(
-            "Unable to toggle Format on Save."
+        if (err || !settingsJson) {
+          vscode.window.showWarningMessage(
+            "Unable to find settings.json to toggle Format on Save."
           );
+          return;
         }
 
-        const userSettings = getSettings(settingsJson);
+        let userSettings;
+        try {
+          userSettings = getSettings(settingsJson);
+        } catch {
+          vscode.window.showWarningMessage(
+            "Unable to parse settings.json to toggle Format on Save. Does it contain comments or hanging commas?"
+          );
+          return;
+        }
+
         let updatedValue = true;
         if (formatOnSaveKey in userSettings) {
           updatedValue = !userSettings[formatOnSaveKey];
@@ -37,6 +47,12 @@ export function activate(context: vscode.ExtensionContext) {
               vscode.window.showInformationMessage(
                 "Unable to toggle Format on Save."
               );
+            } else {
+              if (updatedValue) {
+                vscode.window.setStatusBarMessage("Format on Save: ON.", 2000);
+              } else {
+                vscode.window.setStatusBarMessage("Format on Save: OFF.", 2000);
+              }
             }
           }
         );

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 0.0.2 - 2018-02-27
+### Added
+* Handle settings.json parse failure
+* Show Statusbar message for toggle ON/OFF
+
 ## 0.0.1 - 2018-02-26
 ### Added
 * Initial release of this extension
