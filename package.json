@@ -2,7 +2,7 @@
     "name": "toggle-format-on-save",
     "displayName": "Toggle Format on Save",
     "description": "Provides a command to toggle Format on Save",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "cbrevik",
     "engines": {
         "vscode": "^1.20.0"
