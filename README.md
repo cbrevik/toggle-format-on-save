@@ -1,3 +1,13 @@
+# Deprecation Notice
+
+I no longer recommend using this extension, unless you want to globally turn on and off `Format on Save`.
+
+[VS Code v1.28 now supports saving without formatters](https://code.visualstudio.com/updates/v1_28#_save-without-formatters):
+
+> The new command Save without Formatting (`workbench.action.files.saveWithoutFormatting`) can be used to save a file without triggering any of the save participants (for example, formatters, remove trailing whitespace, final newline). The default keybinding is `⌘K S`. This is useful when editing files outside your normal projects, which may have different formatting conventions.
+
+When saving individual files, using the new `Save without Formatting` command is easier than globally turning on and off `Format on Save`. I will still keep the extension available on Marketplace for those that want the global functionality.
+
 # Toggle Format on Save
 
 Provides a command to toggle Format on Save (`editor.formatOnSave`) inside VS Code.
